@@ -1,1 +1,13 @@
 <h3>New Person Profile</h3>
+<!-- 
+
+#<Person id: nil, name: nil, abstract: nil, description: nil, occupation: nil, allow_comments: nil, approved: nil, author_id: nil, author_type: nil, created_at: nil, updated_at: nil> 
+
+ -->
+<%= simple_form_for @person, url: users_people_path do |f| %>
+  <%= f.input :name %>
+  <%= f.input :abstract%>
+  <%= f.input :description %>
+  <%= f.input :occupation %>
+  <%= f.button :submit %>
+<% end %>
