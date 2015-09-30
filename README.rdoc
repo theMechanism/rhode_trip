@@ -2,7 +2,7 @@
 
 Rhode Island promotional application, for people and places of RI. 
 
-* (Staged app is at: )[https://rhode-trip-staging.herokuapp.com/]
-* [Github repo is at : ](https://github.com/theMechanism/rhode_trip)
+* Staged app is at: https://rhode-trip-staging.herokuapp.com/
+* Github repo is at : https://github.com/theMechanism/rhode_trip
 
-Developed by [The Mechanism](themechanism.com)
+Developed by The Mechanism at themechanism.com
