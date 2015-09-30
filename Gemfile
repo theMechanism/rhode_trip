@@ -17,6 +17,13 @@ gem 'rails', '4.2.3'
 ####################
 gem 'pg'
 
+####################
+
+# PLUGINS
+
+####################
+gem 'simple_form'
+
 # allow tags on multiple types of tables (people, places)
 gem 'acts-as-taggable-on', '~> 3.4'
 
@@ -38,10 +45,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
-# Use SCSS for stylesheets
 
-# Use Uglifier as compressor for JavaScript assets
-
+# prefer no coffeescript
 # Use CoffeeScript for .coffee assets and views
 # gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
