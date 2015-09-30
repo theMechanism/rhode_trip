@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
-gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,6 +37,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # DB structure gems
 
 ####################
+gem 'pg'
+
 # allow tags on multiple types of tables (people, places)
 gem 'acts-as-taggable-on', '~> 3.4'
 
