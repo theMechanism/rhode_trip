@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'users/authors#index'
 
+  namespace :users do
+    resources :people
+    resources :places
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

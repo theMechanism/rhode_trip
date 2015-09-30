@@ -24,8 +24,9 @@ gem 'pg'
 ####################
 gem 'simple_form'
 
-# allow tags on multiple types of tables (people, places)
 gem 'acts-as-taggable-on', '~> 3.4'
+
+gem 'rails_12factor', group: :production
 
 ####################
 
