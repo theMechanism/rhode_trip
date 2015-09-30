@@ -6,7 +6,6 @@ long "9.99"
 name "MyString"
 category nil
 author nil
-people nil
   end
 
 end
