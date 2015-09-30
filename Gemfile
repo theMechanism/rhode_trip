@@ -32,6 +32,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+####################
+
+# DB structure gems
+
+####################
+# allow tags on multiple types of tables (people, places)
+gem 'acts-as-taggable-on', '~> 3.4'
+
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
