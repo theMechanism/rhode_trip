@@ -1,7 +1,7 @@
 class CreatePlaces < ActiveRecord::Migration
   def change
     create_table :places do |t|
-      t.text :address
+      t.json :address
       t.decimal :lat
       t.decimal :long
       t.string :name

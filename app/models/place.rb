@@ -4,4 +4,10 @@ class Place < ActiveRecord::Base
   has_and_belongs_to_many :people
   acts_as_taggable
   
+  # validations to do:
+  # Address in RI, -- validate zip + city name against list
+
+  validates :name, presence: true, uniqueness: true
+  validates :category, presence: true, inclusion: { in:  Category.all, message: "%{value} is not a valid category" }
+  validates :address, presence: true# and need validate against hard coded list of zip codes when possible
 end

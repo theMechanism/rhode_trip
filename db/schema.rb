@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150930211155) do
   end
 
   create_table "places", force: :cascade do |t|
-    t.text     "address"
+    t.json     "address"
     t.decimal  "lat"
     t.decimal  "long"
     t.string   "name"

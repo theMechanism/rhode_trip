@@ -9,4 +9,8 @@ case Rails.env
 when "development"
   user = User.create(username: "Mech UserTester", email: "foo@bar.com")
   ad = Admin.create(username:"Mech TestAdmin", email: "test@test.com")
+
+  %w(Culture Shopping Outdoor Indoor Amusement).each do |cat| 
+    Category.create(name: cat)
+  end
 end
