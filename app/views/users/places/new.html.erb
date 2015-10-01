@@ -1,0 +1,10 @@
+<!-- address
+name
+category -->
+
+<%= simple_form_for @place, url: users_places_path do |f| %>
+  <%= f.input :address %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+
+<% end %>
