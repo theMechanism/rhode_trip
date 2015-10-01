@@ -1,10 +1,11 @@
-<!-- address
-name
-category -->
-
 <%= simple_form_for @place, url: users_places_path do |f| %>
-  <%= f.input :address %>
   <%= f.input :name %>
-  <%= f.input :category %>
-
+  <%= f.association :category, :include_blank => false %>
+  <h4>Add an address</h4>
+  <%= f.input :line_1 %>
+  <%= f.input :line_2 %>
+  <%= f.input :city %>
+  <%= f.input :zip  %>
+  
+  <%= f.button :submit %>
 <% end %>
