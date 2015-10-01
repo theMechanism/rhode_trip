@@ -24,4 +24,11 @@
 
 
 <h4>placeholder for map</h4>
-<img src="" alt="I AM A MAP">
+<h5>place list to be pins on map:</h5>
+<ul>
+  <% @places.each do |place| %>
+   <li><%= place.name %></li>
+  <% end %>  
+</ul>
+
+<img src="http://wwp.greenwichmeantime.com/images/usa/rhode-island.jpg" alt="">
