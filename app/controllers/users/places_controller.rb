@@ -2,7 +2,6 @@ class Users::PlacesController < UsersController
 
   def new 
     @place = Place.new
-    # @categories = Category.all
   end
 
   def create
@@ -13,7 +12,6 @@ class Users::PlacesController < UsersController
     if @place.valid?
       redirect_to root_path
     else
-      # @categories = Category.all
       render :new
     end
   end

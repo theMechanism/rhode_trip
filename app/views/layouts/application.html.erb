@@ -13,11 +13,7 @@
   </head>
 
   <body>
-    <h1>Look mom, i'm in rhode island!</h1>
-    <nav>
-      <a href="#">So look- this isn't really a nav...</a>
-      <a href="<%= root_url  %>" class="button small">HOME</a>
-    </nav>
+    <%= render "/shared/navbar" %>
     <%= yield %>
 
   </body>
