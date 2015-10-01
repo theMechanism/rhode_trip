@@ -1,5 +1,4 @@
-class Users::AuthorsController < ApplicationController
-  skip_before_action :authenticate_user!, :authenticate_admin!
+class Users::AuthorsController < UsersController
   def index
     @people = Person.all
   end
