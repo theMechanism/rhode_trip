@@ -7,8 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 case Rails.env
 when "development"
-  user = User.create(username: "Mech UserTester", email: "foo@bar.com")
-  ad = Admin.create(username:"Mech TestAdmin", email: "test@test.com")
+  user = User.create(display_name: "Mech UserTester", email: "foo@bar.com", password: "password")
+  author_admin = Admin.create(display_name:"Mech AuthorAdmin", email: "author@test.com", password: "password", role: "Super")
+  super_admin = Admin.create(display_name:"Mech SuperAdmin", email: "super@test.com", password: "password", role: "Super")
 
   %w(Culture Shopping Outdoor Indoor Amusement).each do |cat| 
     Category.create(name: cat)
