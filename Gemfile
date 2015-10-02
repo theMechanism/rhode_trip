@@ -26,8 +26,10 @@ gem 'simple_form'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+# assets precompilation + heroku magic
 gem 'rails_12factor', group: :production
 
+# user auth engine
 gem 'devise'
 
 ####################
@@ -54,6 +56,16 @@ gem 'turbolinks'
 # gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+
+####################
+
+# STAGING DUMMY DATA
+# TODO add additional ENV to this app of staging
+
+####################
+gem 'faker'
+
 
 # Use jquery as the JavaScript library
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
