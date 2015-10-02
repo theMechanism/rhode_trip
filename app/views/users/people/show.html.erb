@@ -1,3 +1,12 @@
 <h3>Profile of <%= @person.name %></h3>
 
 <p><%= @person.description %></p>
+
+<h5><%= @person.name %>'s places</h5>
+<ul>
+  <% @places.each do |place| %>
+    <li>
+      <%= place.name %>
+    </li>
+  <% end %>
+</ul>

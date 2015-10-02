@@ -9,6 +9,6 @@
   <%= f.input :abstract%>
   <%= f.input :description %>
   <%= f.input :occupation %>
-  <%= f.association :places %>
+  <%= f.association :places, as: :check_boxes, label: 'Which places is this person connected to?' %>
   <%= f.button :submit %>
 <% end %>
