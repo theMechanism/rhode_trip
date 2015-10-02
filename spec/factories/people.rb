@@ -1,11 +1,10 @@
 FactoryGirl.define do
   factory :person do
-    name "MyString"
-    abstract "MyText"
-    description "MyText"
-    allow_comments false
+    name Faker::Name.name
+    abstract Faker::Lorem.sentence
+    description Faker::Lorem.paragraphs
+    allow_comments true
     approved false
-    author nil
+    association :author, factory: :admin, display_name: Faker::Name.name, email: Faker::Internet.email
   end
-
 end

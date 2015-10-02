@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :people, as: :author
   has_many :places, as: :author
+
+  validates_presence_of :display_name
 end
