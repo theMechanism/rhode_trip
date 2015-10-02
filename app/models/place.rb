@@ -9,7 +9,7 @@ class Place < ActiveRecord::Base
   # Address in RI, -- validate zip + city name against list
 
   validates :name, presence: true, uniqueness: true
-  validates :category, presence: true, inclusion: { in:  Category.all, message: "%{value} is not a valid category" }
+  validates :categories, presence: true#, inclusion: { in:  Category.all, message: "%{value} is not a valid category" }
   validates :address, presence: true# and need validate against hard coded list of zip codes when possible
 
   include Place::Address

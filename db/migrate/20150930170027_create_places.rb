@@ -5,7 +5,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.decimal :lat
       t.decimal :long
       t.string :name
-      t.references :category, index: true, foreign_key: true
+      t.boolean :approved
       t.references :author, polymorphic: true, index: true
 
       t.timestamps null: false

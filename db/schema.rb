@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20151001175650) do
     t.decimal  "lat"
     t.decimal  "long"
     t.string   "name"
-    t.integer  "category_id"
+    t.boolean  "approved"
     t.integer  "author_id"
     t.string   "author_type"
     t.datetime "created_at",  null: false
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 20151001175650) do
   end
 
   add_index "places", ["author_type", "author_id"], name: "index_places_on_author_type_and_author_id", using: :btree
-  add_index "places", ["category_id"], name: "index_places_on_category_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -128,5 +127,4 @@ ActiveRecord::Schema.define(version: 20151001175650) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "categories", "categories"
-  add_foreign_key "places", "categories"
 end
