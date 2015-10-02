@@ -6,4 +6,5 @@ class Admin < ActiveRecord::Base
   has_many :people, as: :author
   has_many :places, as: :author
 
+  validates :display_name, presence: true, uniqueness: true
 end
