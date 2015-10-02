@@ -8,8 +8,8 @@
 # case Rails.env
 # when "development"
   user = User.create(display_name: "Mech UserTester", email: "foo@bar.com", password: "password")
-  author_admin = Admin.create(display_name:"Mech AuthorAdmin", email: "author@test.com", password: "password", role: "Super")
-  super_admin = Admin.create(display_name:"Mech SuperAdmin", email: "super@test.com", password: "password", role: "Super")
+  self_publisher = User.create(display_name: "Mech SelfPub", email: "self@pub.com", password: "password", can_self_publish: true)
+  author_admin = Admin.create(display_name:"Mech AuthorAdmin", email: "author@test.com", password: "password")
 
   %w(Culture Shopping Outdoor Indoor Amusement).each do |cat| 
     Category.create(name: cat)
