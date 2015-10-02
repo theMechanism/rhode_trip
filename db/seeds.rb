@@ -50,7 +50,8 @@
         abstract: Faker::Lorem.sentence,
         description: Faker::Lorem.paragraphs( cat_count ),
         occupation: Faker::Name.title,
-        approved: tf_rand
+        approved: tf_rand,
+        author: author
       )
     end
   end
