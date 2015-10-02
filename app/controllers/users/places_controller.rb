@@ -19,7 +19,7 @@ class Users::PlacesController < UsersController
   private
 
   def place_params
-    params.require(:place).permit(:name, :category_id, :line_1, :line_2, :city, :zip)
+    params.require(:place).permit(:name, :line_1, :line_2, :city, :zip, :category_ids => [], :person_ids => [])
   end
 
   def address # this is not awesome -- move into module

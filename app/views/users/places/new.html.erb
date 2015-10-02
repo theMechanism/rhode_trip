@@ -1,6 +1,7 @@
 <%= simple_form_for @place, url: users_places_path do |f| %>
   <%= f.input :name %>
-  <%= f.association :category, :include_blank => false %>
+  <%= f.association :categories, as: :check_boxes %>
+  <%= f.association :people, as: :check_boxes %>
   <h4>Add an address</h4>
   <%= f.input :line_1 %>
   <%= f.input :line_2 %>
