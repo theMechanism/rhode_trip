@@ -5,17 +5,23 @@ class Users::PlacesController < UsersController
   end
 
   def create
-    @place = Place.create(place_params.merge({
+    @place = Place.create( place_params.merge({
       address: address,
       author: current_user 
     }))
     if @place.valid?
-      redirect_to root_path
+      redirect_to users_place_path( @place )
     else
       render :new
     end
   end
 
+  def show
+    @place = Place.find(params[:id])
+    @people = @place.people
+    @categories = @place.categories
+  end
+  
   private
 
   def place_params

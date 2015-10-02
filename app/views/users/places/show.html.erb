@@ -1,0 +1,23 @@
+<h2><%= @place.name %></h2>
+
+<h5>place categories</h5>
+<ul>
+  <% @categories.each do |cat| %>
+    <li><%= cat.name %></li>
+  <% end %>
+</ul>
+
+
+<h5>People associated</h5>
+<ul>
+  <% @people.each do |person| %>
+    <li>
+      <a href="<%= users_person_path( person )  %>">
+        <%= person.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<h4>PLACEHOLDER FOR PLACE PINNED ON MAP</h4>
+<img src="http://wwp.greenwichmeantime.com/images/usa/rhode-island.jpg" alt="">
