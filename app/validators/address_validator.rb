@@ -10,21 +10,17 @@ class AddressValidator < ActiveModel::EachValidator
     @messages = []
     load_from_csv
     
-    unless attribute != nil
-      return record.errors[ :attribute ] << 'Must suppply an address'
+    if ( value[ 'zip' ] == nil ) || ( value[ 'city' ] == nil ) 
+      return record.errors[ attribute ] << 'Must suppply an address'
     end
 
-    zip = value[ :zip ]
-    name = value[ :city ].capitalize
+    zip = value[ 'zip' ]
+    name = value[ 'city' ].capitalize
 
     unless valid_zip( zip ) && valid_name( name ) && valid_zip_name( zip, name)
       record.errors[ attribute ] << @messages
     end
 
-  end
-
-  def show 
-    @zip_names
   end
 
   private

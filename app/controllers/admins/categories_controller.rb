@@ -1,2 +1,2 @@
-class Admins::CategoriesController < ApplicationController
+class Admins::CategoriesController < AdminsController
 end

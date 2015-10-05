@@ -1,2 +1,2 @@
-class Admins::PlacesController < ApplicationController
+class Admins::PlacesController < AdminsController
 end

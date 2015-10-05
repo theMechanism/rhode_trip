@@ -12,4 +12,13 @@ class Place < ActiveRecord::Base
 
   attr_accessor :line_1, :line_2, :city, :zip
 
+  before_validation(on: :create) do
+    self.address = {
+      line_1: self.line_1,
+      line_2: self.line_2,
+      city: self.city,
+      zip: self.zip
+    }
+  end
+
 end

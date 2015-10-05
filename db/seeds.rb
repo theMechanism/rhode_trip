@@ -5,17 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'csv'
+
 # case Rails.env
 # when "development"
+  
+  csv_path = AddressValidator::PATH
+  zips_n_names = {}
 
-  def address_stub
-    {
-      line_1: Faker::Address.street_address,
-      line_2: Faker::Address.secondary_address,
-      city: Faker::Address.city,
-      zip: Faker::Address.zip
-    }
+  CSV.foreach( csv_path ) do |row|
+    zips_n_names[ row[0] ] = [ row[1], row[4] ]
   end
+
+  zips = zips_n_names.keys
 
   def tf_rand
     [true, false].sample
@@ -36,10 +39,14 @@
 
   [ user, self_publisher ].each do |author|
     5.times do
+      sampled = zips.sample
       cat_count = 1 + rand(3)
       cats = categories.sample( cat_count )
       places << Place.create(
-        address: address_stub,
+        line_1: Faker::Address.street_address,
+        line_2: Faker::Address.secondary_address,
+        city: zips_n_names[ sampled ][ 0 ],
+        zip: sampled,
         name: Faker::Company.name,
         categories: cats,
         author: author,
