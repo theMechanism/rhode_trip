@@ -1,31 +1,49 @@
 require 'csv'
 
-class AddressValidator < ActiveModel::Validator
+class AddressValidator < ActiveModel::EachValidator
   
   PATH = File.join(Rails.root, 'csv', 'RI_zip_codes.csv')
 
-  def initialize
+  # def init_vars
+  #   @zip_names = {}
+  #   @is_valid = nil
+  #   @messages = []
+  #   load_from_csv
+  # end
+  def validate_each(record, attribute, value)
     @zip_names = {}
     @is_valid = nil
     @messages = []
     load_from_csv
-  end
+    # unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+    #   record.errors[attribute] << (options[:message] || "is not an email")
+    # end
+    unless attribute != nil
+      return record.errors[ :attribute ] << 'Must suppply an address'
+    end
 
-  def show
-    @zip_names
-  end
-
-  def validate( record )
-    zip = record.address[ :zip ]
-    name = record.address[ :city ]
+    zip = attribute['zip']
+    name = attribute['city']
 
     if valid_zip( zip ) && valid_name( name ) && valid_zip_name( zip, name)
-      return @is_valid = true
-    else
-      record.errors[ :address ] = @messages
+      record.errors[ :attribute ] << @messages
     end
-    
+
   end
+
+
+  # def validate( record )
+  #   init_vars
+  #   zip = record.address[ :zip ]
+  #   name = record.address[ :city ]
+
+  #   if valid_zip( zip ) && valid_name( name ) && valid_zip_name( zip, name)
+  #     return @is_valid = true
+  #   else
+  #     record.errors[ :address ] = @messages
+  #   end
+    
+  # end
 
   private
 
