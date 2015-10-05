@@ -10,7 +10,8 @@ class Place < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :categories, presence: true#, inclusion: { in:  Category.all, message: "%{value} is not a valid category" }
   validates :address, presence: true# and need validate against hard coded list of zip codes when possible
+  validates_with MyValidator
 
-  include Place::Address
+  attr_accessor attr_accessor :line_1, :line_2, :city, :zip
 
 end
