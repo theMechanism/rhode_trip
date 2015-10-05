@@ -20,12 +20,17 @@ valid_city_fake_zip = {
   city: 'Providence'
 }
 
-fully_valid1 = {
+valid_entries_that_do_not_match = {
+  zip: '02827',
+  city: 'Providence'
+}
+
+conforms_to_csv = {
   zip: '02827',
   city: 'Greene'
 }
 
-fully_valid2 = {
+unusual_caps = {
   zip: '02827',
   city: 'kent'
 }
@@ -40,18 +45,37 @@ RSpec.describe AddressValidator do
 
   let( :test_host ){ TestHost.new }
 
-  
   describe 'use cases' do
     
-    it 'invalidata valid zip + invalid city' do
+    it 'invalidates valid zip + invalid city' do
       test_host.address = valid_zip_fake_city
       expect( test_host.valid? ).to be( false )
+      expect( test_host.errors ).not_to be_empty
+    end
+
+    it 'invalidates fake zip, valid city' do 
+      test_host.address = valid_city_fake_zip
+      expect( test_host.valid? ).to be( false )
+      expect( test_host.errors ).not_to be_empty
+    end
+
+    it 'invalidates valid_entries_that_do_not_match' do 
+      test_host.address = valid_entries_that_do_not_match
+      expect( test_host.valid? ).to be( false )
+      expect( test_host.errors ).not_to be_empty
+    end
+
+    it 'validates data that fully matches csv entries' do
+      test_host.address = conforms_to_csv
+      expect( test_host.valid? ).to be( true )
+      expect( test_host.errors ).to be_empty
+    end
+
+    it 'validates correct input with improper capitalizations' do
+      test_host.address = unusual_caps
+      expect( test_host.valid? ).to be( true )
+      expect( test_host.errors ).to be_empty
     end
   end
 
-  # describe 'associations' do
-
-  #   it { expect( admin ).to have_many( :people ) }
-  #   it { expect( admin ).to have_many( :places ) }
-  # end
 end

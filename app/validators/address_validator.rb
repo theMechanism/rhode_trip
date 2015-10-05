@@ -9,18 +9,22 @@ class AddressValidator < ActiveModel::EachValidator
     @is_valid = nil
     @messages = []
     load_from_csv
-
+    
     unless attribute != nil
       return record.errors[ :attribute ] << 'Must suppply an address'
     end
 
-    zip = attribute['zip']
-    name = attribute['city']
+    zip = value[ :zip ]
+    name = value[ :city ].capitalize
 
-    if valid_zip( zip ) && valid_name( name ) && valid_zip_name( zip, name)
-      record.errors[ :attribute ] << @messages
+    unless valid_zip( zip ) && valid_name( name ) && valid_zip_name( zip, name)
+      record.errors[ attribute ] << @messages
     end
 
+  end
+
+  def show 
+    @zip_names
   end
 
   private
@@ -35,18 +39,18 @@ class AddressValidator < ActiveModel::EachValidator
   end
 
   def valid_name( name )
-    unless @zip_names.values.flatten.uniq.include?( address[:city] )
-      is_valid = false
-      messages << 'That place name is not in Rhode Island. Please correct it or try another.'
+    unless @zip_names.values.flatten.uniq.include?( name )
+      @is_valid = false
+      @messages << 'That place name is not in Rhode Island. Please correct it or try another.'
       return false
     end
     true
   end
 
   def valid_zip_name( zip, name )
-    unless @zip_names[ zip ].include?( city ) 
-      is_valid = false
-      messages << %{ The zip code you entered and the place name do not match up. Did you mean "#{ @zip_names[ address[:zip] ].join(' or ') }"}
+    unless @zip_names[ zip ].include?( name ) 
+      @is_valid = false
+      @messages << %{ The zip code you entered and the place name do not match up. Did you mean "#{ @zip_names[ zip ].join(' or ') }"}
       return false
     end
     true
