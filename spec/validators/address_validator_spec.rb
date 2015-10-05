@@ -11,22 +11,22 @@ class TestHost
 end
 
 valid_zip_fake_city = {
-  zip: 02802,
+  zip: '02802',
   city: 'FakeCity'
 }
 
 valid_city_fake_zip = {
-  zip: 11111,
+  zip: '11111',
   city: 'Providence'
 }
 
 fully_valid1 = {
-  zip: 02827,
+  zip: '02827',
   city: 'Greene'
 }
 
 fully_valid2 = {
-  zip: 02827,
+  zip: '02827',
   city: 'kent'
 }
 
@@ -40,12 +40,13 @@ RSpec.describe AddressValidator do
 
   let( :test_host ){ TestHost.new }
 
-  # Basic validations
-  # validations on email + pw handled by devise, and well tested
-  describe 'invalidates valid zip fake city' do
-    test_host.address = valid_zip_fake_city
-    it { expect( test_host.valid? ) }.to be( false ) }
-    # test.valid?
+  
+  describe 'use cases' do
+    
+    it 'invalidata valid zip + invalid city' do
+      test_host.address = valid_zip_fake_city
+      expect( test_host.valid? ).to be( false )
+    end
   end
 
   # describe 'associations' do
