@@ -4,5 +4,8 @@
 
 <%= render '/admins/shared/table', hash: {
   attrs: attrs,
-  instances: @people
+  instances: @people,
+  attrs_to_link: {
+    name: :admins_person_path
+  }
 }%>

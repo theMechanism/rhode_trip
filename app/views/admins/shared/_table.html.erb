@@ -10,5 +10,5 @@
 <table>
   <%= render '/admins/shared/table_head', attrs: hash[ :attrs ]  %>
 
-  <%= render '/admins/shared/table_body', instances: hash[ :instances ], attrs: hash[ :attrs ] %> 
+  <%= render '/admins/shared/table_body', instances: hash[ :instances ], attrs: hash[ :attrs ], attrs_to_link: hash[ :attrs_to_link ] %> 
 </table>

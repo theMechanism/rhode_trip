@@ -2,7 +2,16 @@
   <% instances.each do |instance| %>
     <tr>
       <% attrs.map do |attr| %>
-        <td><%= instance[ attr ] %></td>
+        
+        <% if attrs_to_link.keys.include?( attr.to_sym ) %>
+          <td>
+            <a href="<%= self.send( attrs_to_link[ attr.to_sym ], instance)  %>">
+              <%= instance[ attr ] %>
+            </a>
+          </td>
+        <% else %>
+          <td><%= instance[ attr ] %></td>
+        <% end %>
       <% end %>
     </tr>
   <% end %>
