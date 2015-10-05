@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  # devise_for :admins
+  devise_for :admins
   devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
   root 'users/authors#index'
 
   namespace :users do
@@ -13,6 +9,12 @@ Rails.application.routes.draw do
     resources :places
   end
 
+  namespace :admins do
+    resources :people
+    resources :places
+    resources :users
+    resources :categories
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
