@@ -1,0 +1,9 @@
+<tbody>
+  <% instances.each do |instance| %>
+    <tr>
+      <% attrs.map do |attr| %>
+        <td><%= instance[ attr ] %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</tbody>

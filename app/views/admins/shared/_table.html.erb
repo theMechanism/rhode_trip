@@ -1,0 +1,14 @@
+<!-- 
+
+  accepts hash
+  hash['attrs'] = array of attributes 
+  hash['instances'] = array of instances
+  hash['attrs_to_link'] = hash of key is attr name, val is link helper method to call
+
+-->
+
+<table>
+  <%= render '/admins/shared/table_head', attrs: hash[ :attrs ]  %>
+
+  <%= render '/admins/shared/table_body', instances: hash[ :instances ], attrs: hash[ :attrs ] %> 
+</table>

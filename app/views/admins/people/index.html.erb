@@ -1,1 +1,8 @@
-<h3>yo</h3>
+
+<h3>People</h3>
+<% attrs = @people.first ? @people.first.attributes.keys : [] %>
+
+<%= render '/admins/shared/table', hash: {
+  attrs: attrs,
+  instances: @people
+}%>
