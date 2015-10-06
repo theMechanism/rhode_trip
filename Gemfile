@@ -32,6 +32,11 @@ gem 'rails_12factor', group: :production
 # user auth engine
 gem 'devise'
 
+# another plataformatec gem, amazing DRY tool
+# https://github.com/plataformatec/responders
+# used in devise source
+gem 'responders'
+
 ####################
 
 # STYLES
