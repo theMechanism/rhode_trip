@@ -1,0 +1,13 @@
+<%= f.input :display_name %>
+<%= f.input :email %>
+<%= f.input :can_self_publish %>
+
+<% if action_name == 'new'  %>
+  <%= f.input :password %>
+<!-- 
+  resolving forgotten passwords beyond the devise automation, beyond purview of current sprint
+  < % elsif action_name == 'edit' %>
+  < %= f.input :password, readonly: true %> 
+
+  -->
+<% end %>
