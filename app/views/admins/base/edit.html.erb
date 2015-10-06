@@ -1,0 +1,6 @@
+<h1><%= t('admin.resource.edit.title', inflections) %></h1>
+
+<%= simple_form_for(@resource, url: resource_path(@resource)) do |f| %>
+  <%= render "form", form: f %>
+  <%= f.button :submit %>
+<% end %>
