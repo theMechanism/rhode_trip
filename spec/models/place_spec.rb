@@ -10,7 +10,13 @@ RSpec.describe Place, type: :model do
     it { expect( place ).to validate_presence_of( :name ) }
     it { expect( place ).to validate_uniqueness_of( :name ) }
     it { expect( place ).to validate_presence_of( :categories ) }
-    it { expect( place ).to validate_presence_of( :address ) }
+    it { expect( place ).to validate_presence_of( :line_1 ) }
+    
+    it 'calls custom address_validator method' do
+      # for full test, see spec/validators
+      place.zip = 'not a zip'
+      expect( place.valid? ).to be( false )
+    end
   end
 
   describe 'associations' do

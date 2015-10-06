@@ -2,14 +2,15 @@
   < %= eval( input ) %>
 < % end %> --> 
 
+<%= f.association :author, :label_method => :display_name, :value_method => :id, include_blank: false %> 
 <%= f.input :line_1 %>
+<%= f.input :line_2 %>
+<%= f.input :city %>
+<%= f.input :zip %>
 <%= f.input :lat %>
 <%= f.input :long %>
 <%= f.input :name %>
 <%= f.input :approved %>
 <%= f.association :people, as: :check_boxes, label: 'Associated People' %>
-<!-- < %= f.association :author %> 
 
-f.input :country_id, collection: @continents, as: :grouped_select, group_method: :countries
 
--->

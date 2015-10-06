@@ -15,9 +15,4 @@ RSpec.describe Admin, type: :model do
     it { expect( admin ).to validate_uniqueness_of( :display_name ) }
   end
 
-  describe 'associations' do
-
-    it { expect( admin ).to have_many( :people ) }
-    it { expect( admin ).to have_many( :places ) }
-  end
 end

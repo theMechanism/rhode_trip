@@ -1,14 +1,13 @@
-dumb_json = {
-  line_1: 'line_1'
-}.to_json
-
 FactoryGirl.define do
   factory :place do
-    address dumb_json
+    line_1 Faker::Address.street_address
+    line_2 Faker::Address.secondary_address
+    city 'Adamsville'
+    zip '02801'
     lat Faker::Address.latitude
     long Faker::Address.longitude
     name Faker::Address.city
-    association :author, factory: :admin, display_name: Faker::Name.name, email: Faker::Internet.email
+    association :author, factory: :user, display_name: Faker::Name.name, email: Faker::Internet.email
 
     initialize_with { new({
         categories: [ create( :category, name: Faker::Name.name )]

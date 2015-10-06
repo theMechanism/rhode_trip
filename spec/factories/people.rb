@@ -5,6 +5,6 @@ FactoryGirl.define do
     description Faker::Lorem.paragraphs
     allow_comments true
     approved false
-    association :author, factory: :admin, display_name: Faker::Name.name, email: Faker::Internet.email
+    association :author, factory: :user, display_name: Faker::Name.name, email: Faker::Internet.email
   end
 end
