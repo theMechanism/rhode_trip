@@ -1,4 +1,4 @@
-<h1><%= t('admin.resource.edit.title', inflections) %></h1>
+<h1><%= t('Edit' + inflections[:resource_name]) %></h1>
 
 <%= simple_form_for(@resource, url: resource_path(@resource)) do |f| %>
   <%= render "form", f: f %>

@@ -1,4 +1,4 @@
-<h1><%= t('admin.resource.index.title', inflections) %></h1>
+<h1><%= t(inflections[:collection_name]) %></h1>
 
 <%= table_for(@collection) do |table, record| %>
   <%= render 'table', table: table %>
