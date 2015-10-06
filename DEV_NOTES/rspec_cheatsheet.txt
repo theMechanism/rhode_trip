@@ -1,3 +1,5 @@
 rspec cheatsheet
 
 https://gist.github.com/kyletcarlson/6234923
+
+https://gist.github.com/eliotsykes/5b71277b0813fbc0df56#file-rspec_cheatsheet_controller_spec-rb
