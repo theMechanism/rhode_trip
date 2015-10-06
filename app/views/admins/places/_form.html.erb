@@ -1,6 +1,8 @@
-<!-- < %= f.input :address %> --> 
-<%= f.input :author_id, collection: User.all, :label_method => :display_name, :value_method => :id, include_blank: false %>
+<!-- < %= f.input :address %>< % address_to_form_fields( @resource ).each do |input| %>
+  < %= eval( input ) %>
+< % end %> --> 
 
+<%= f.input :line_1 %>
 <%= f.input :lat %>
 <%= f.input :long %>
 <%= f.input :name %>

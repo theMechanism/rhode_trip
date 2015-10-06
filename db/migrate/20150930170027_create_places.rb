@@ -1,7 +1,11 @@
 class CreatePlaces < ActiveRecord::Migration
   def change
     create_table :places do |t|
-      t.json :address
+      # contain address fields in same table
+      t.string :line_1
+      t.string :line_2
+      t.string :city
+      t.string :zip
       t.decimal :lat
       t.decimal :long
       t.string :name

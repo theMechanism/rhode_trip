@@ -25,8 +25,11 @@ module RestActionsConcern
   end
   def create
     @resource = resource_class.new(permitted_params)
-    @resource.save
-    respond_with @resource, location: collection_path
+    if @resource.save
+      respond_with @resource, location: collection_path
+    else
+      render :new
+    end
   end
   def edit
     @resource = resource_class.find(params[:id])
