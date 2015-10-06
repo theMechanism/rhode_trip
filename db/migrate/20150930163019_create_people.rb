@@ -7,7 +7,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :occupation
       t.boolean :allow_comments
       t.boolean :approved
-      t.references :author, polymorphic: true, index: true
+      t.references :author, index: true
 
       t.timestamps null: false
     end

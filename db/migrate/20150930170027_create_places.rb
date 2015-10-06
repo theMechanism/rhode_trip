@@ -6,7 +6,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.decimal :long
       t.string :name
       t.boolean :approved
-      t.references :author, polymorphic: true, index: true
+      t.references :author, index: true
 
       t.timestamps null: false
     end
