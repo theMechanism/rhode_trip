@@ -8,21 +8,20 @@ class Place < ActiveRecord::Base
   
   validates :name, presence: true, uniqueness: true
   validates :categories, presence: true#, inclusion: { in:  Category.all, message: "%{value} is not a valid category" }
-  # validates :address, presence: true, address: true
+  validates_presence_of :line_1
+  validates :zip_city, presence: true, address: true
 
-  # attr_accessor :line_1, :line_2, :city, :zip
+  def address
+    [ self.line_1, self.line_2.to_s, self.city, self.zip ].join(' ')
+  end
 
-  # before_validation(on: :create) do
-  #   self.address = {
-  #     line_1: self.line_1,
-  #     line_2: self.line_2,
-  #     city: self.city,
-  #     zip: self.zip
-  #   }
-  # end
-
-  # def line_1 
-  #   address ? address.line_1 : ''
-  # end
+  private
+  
+  def zip_city
+    {
+      zip: self.zip,
+      city: self.city
+    }
+  end
 
 end

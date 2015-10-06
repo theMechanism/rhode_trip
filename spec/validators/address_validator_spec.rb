@@ -5,9 +5,21 @@ require 'rails_helper'
 class TestHost
   include ActiveModel::Validations
   
-  attr_accessor :address
+  attr_accessor :zip, :city
 
-  validates :address, presence: true, address: true
+  def initialize(attrs)
+    @zip = attrs[:zip]
+    @city = attrs[:city]
+  end
+
+  validates :zip_city, presence: true, address: true
+
+  def zip_city
+    {
+      zip: @zip,
+      city: @city
+    }
+  end
 end
 
 valid_zip_fake_city = {
@@ -43,36 +55,34 @@ RSpec.describe AddressValidator do
     })).to be_a( AddressValidator )
   end
 
-  let( :test_host ){ TestHost.new }
-
   describe 'use cases' do
     
     it 'invalidates valid zip + invalid city' do
-      test_host.address = valid_zip_fake_city
+      test_host = TestHost.new( valid_zip_fake_city )
       expect( test_host.valid? ).to be( false )
       expect( test_host.errors ).not_to be_empty
     end
 
     it 'invalidates fake zip, valid city' do 
-      test_host.address = valid_city_fake_zip
+      test_host = TestHost.new( valid_city_fake_zip )
       expect( test_host.valid? ).to be( false )
       expect( test_host.errors ).not_to be_empty
     end
 
     it 'invalidates valid_entries_that_do_not_match' do 
-      test_host.address = valid_entries_that_do_not_match
+      test_host = TestHost.new( valid_entries_that_do_not_match )
       expect( test_host.valid? ).to be( false )
       expect( test_host.errors ).not_to be_empty
     end
 
     it 'validates data that fully matches csv entries' do
-      test_host.address = conforms_to_csv
+      test_host = TestHost.new( conforms_to_csv )
       expect( test_host.valid? ).to be( true )
       expect( test_host.errors ).to be_empty
     end
 
     it 'validates correct input with improper capitalizations' do
-      test_host.address = unusual_caps
+      test_host = TestHost.new( unusual_caps )
       expect( test_host.valid? ).to be( true )
       expect( test_host.errors ).to be_empty
     end
