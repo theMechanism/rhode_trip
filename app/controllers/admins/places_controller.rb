@@ -1,2 +1,3 @@
-class Admins::PlacesController < AdminsController
+class Admins::PlacesController < Admins::BaseController
+  include RestActionsConcern
 end
