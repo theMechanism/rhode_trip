@@ -1,8 +1,8 @@
 module ResourceInflectionsConcern
   extend ActiveSupport::Concern
 
-  included  do
-    helper_methods :inflections
+  included do
+    helper_method :inflections
   end
 
   private

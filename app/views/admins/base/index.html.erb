@@ -1,0 +1,13 @@
+<h1><%= t('admin.resource.index.title', inflections) %></h1>
+
+<%= table_for(@collection) do |table, record| %>
+  <%= render 'table', table: table %>
+  <%= table.actions do %>
+   
+    <%= table.action :edit, edit_resource_path(record) %>
+    <%= table.action :destroy, resource_path(record), method: :delete %>
+  <% end %>
+<% end %>
+
+<% new_label = t('admin.resource.index.actions.new', inflections) %> 
+<!-- <p>< %= link_to(new_label, new_resource_url) %></p> -->

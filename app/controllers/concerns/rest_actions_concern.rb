@@ -1,10 +1,14 @@
 module RestActionsConcern
   extend ActiveSupport::Concern
   include ResourceUrlsConcern
+  include ResourceInflectionsConcern
 
   included do 
     respond_to :html
     responders :flash
+
+    helper_method :resource_class
+    #helper_method :query_class
   end
 
   def resource_class
@@ -13,6 +17,7 @@ module RestActionsConcern
 
   def index
     @collection = resource_class.all
+    # byebug
     respond_with @collection
   end
   def new
