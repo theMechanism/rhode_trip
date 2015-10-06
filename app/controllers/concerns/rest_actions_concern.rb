@@ -8,7 +8,7 @@ module RestActionsConcern
     responders :flash
 
     helper_method :resource_class
-    #helper_method :query_class
+    #helper_method :query_class -- see admino gem docs for more, and dev_notes/pdf
   end
 
   def resource_class
@@ -17,7 +17,6 @@ module RestActionsConcern
 
   def index
     @collection = resource_class.all
-    # byebug
     respond_with @collection
   end
   def new
@@ -27,7 +26,7 @@ module RestActionsConcern
   def create
     @resource = resource_class.new(permitted_params)
     @resource.save
-    respond_with @resource, location: collection_url
+    respond_with @resource, location: collection_path
   end
   def edit
     @resource = resource_class.find(params[:id])
@@ -36,12 +35,12 @@ module RestActionsConcern
   def update
     @resource = resource_class.find(params[:id])
     @resource.update_attributes(permitted_params)
-    respond_with @resource, location: collection_url
+    respond_with @resource, location: collection_path
   end
   def destroy
     @resource = resource_class.find(params[:id])
     @resource.destroy
-    respond_with @resource, location: collection_url
+    respond_with @resource, location: collection_path
   end
 
 end

@@ -1,3 +1,3 @@
 module AdminsHelper
-  include ResourceUrlsConcern
+  # include ResourceUrlsConcern
 end
