@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :people, as: :author
-  has_many :places, as: :author
+  has_many :people, foreign_key: :author_id
+  has_many :places, foreign_key: :author_id
 
   validates_presence_of :display_name
 end

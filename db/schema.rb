@@ -61,12 +61,11 @@ ActiveRecord::Schema.define(version: 20151001175650) do
     t.boolean  "allow_comments"
     t.boolean  "approved"
     t.integer  "author_id"
-    t.string   "author_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
-  add_index "people", ["author_type", "author_id"], name: "index_people_on_author_type_and_author_id", using: :btree
+  add_index "people", ["author_id"], name: "index_people_on_author_id", using: :btree
 
   create_table "people_places", id: false, force: :cascade do |t|
     t.integer "place_id"
@@ -80,12 +79,11 @@ ActiveRecord::Schema.define(version: 20151001175650) do
     t.string   "name"
     t.boolean  "approved"
     t.integer  "author_id"
-    t.string   "author_type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "places", ["author_type", "author_id"], name: "index_places_on_author_type_and_author_id", using: :btree
+  add_index "places", ["author_id"], name: "index_places_on_author_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

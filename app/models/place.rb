@@ -1,7 +1,7 @@
 class Place < ActiveRecord::Base
   include ActiveModel::Validations # custom AddressValidator defined in app/validators/address_validator
 
-  belongs_to :author, polymorphic: true
+  belongs_to :author, class_name: 'User'
   has_and_belongs_to_many :people, :uniq => true
   has_and_belongs_to_many :categories, :uniq => true
   acts_as_taggable
