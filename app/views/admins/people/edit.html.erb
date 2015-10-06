@@ -1,0 +1,5 @@
+<%= simple_form_for(@person, url: admins_person_path(@person) ) do |f| %>
+
+  <%= render 'form', f: f, person: @person %>
+  <%= f.button :submit %>
+<% end %>
