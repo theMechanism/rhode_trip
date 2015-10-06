@@ -37,6 +37,9 @@ gem 'devise'
 # used in devise source
 gem 'responders'
 
+# excellent -- quick but modular + testable for admin views, tables, queries + more. more flex than active admin it seems. see DEV_NOTES/speaker_deck_on_admin_abstraction.pdf
+gem 'admino'
+
 ####################
 
 # STYLES
