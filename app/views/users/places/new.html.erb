@@ -7,6 +7,8 @@
   <%= f.input :line_2 %>
   <%= f.input :city %>
   <%= f.input :zip  %>
-  
+  <!-- < % byebug %> -->
+  <%= render 'shared/simple_fields_for_tags', resource: @place, f: f %>
+
   <%= f.button :submit %>
 <% end %>

@@ -6,5 +6,5 @@ module TagsFromPermittedParams
       tags.each{|t| resource.tags.create(name: t) }
     end
   end
-  
+
 end

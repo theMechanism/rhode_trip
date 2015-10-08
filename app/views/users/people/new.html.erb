@@ -10,10 +10,6 @@
   <%= f.input :description %>
   <%= f.input :occupation %>
   <%= f.association :places, as: :check_boxes, label: 'Which places is this person connected to?' %>
-  <!-- < %= f.input :tags, :input_html => { :value => @person.tags.join(', ') }, as: :string %> -->
-  <%= f.simple_fields_for @person.tags.first do |t| %>
-    <%= t.input :name, label: 'Tags' %>
-    <!-- < % byebug %> -->
-  <% end %>
+  <%= render 'shared/simple_fields_for_tags', resource: @person, f: f %>
   <%= f.button :submit %>
 <% end %>

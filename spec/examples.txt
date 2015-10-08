@@ -2,8 +2,9 @@ example_id                                                                   | s
 ---------------------------------------------------------------------------- | ------- | --------------- |
 ./spec/controllers/users/people_controller_spec.rb[1:1:1]                    | passed  | 0.00739 seconds |
 ./spec/features/admin_creates_category_with_parents_spec.rb[1:1]             | passed  | 0.39066 seconds |
-./spec/features/user_adds_tag_to_valid_personprofile_on_creates_spec.rb[1:1] | passed  | 0.17721 seconds |
-./spec/features/user_adds_tag_to_valid_personprofile_on_creates_spec.rb[1:2] | passed  | 0.26483 seconds |
+./spec/features/user_adds_tag_to_valid_personprofile_on_creates_spec.rb[1:1] | passed  | 0.15204 seconds |
+./spec/features/user_adds_tag_to_valid_personprofile_on_creates_spec.rb[1:2] | passed  | 0.46859 seconds |
+./spec/features/user_adds_tags_to_places_spec.rb[1:1]                        | passed  | 2.95 seconds    |
 ./spec/helpers/admins/base_helper_spec.rb[1:1]                               | pending | 0.00001 seconds |
 ./spec/helpers/admins/categories_helper_spec.rb[1:1]                         | pending | 0.00001 seconds |
 ./spec/helpers/admins/people_helper_spec.rb[1:1]                             | pending | 0.00001 seconds |
