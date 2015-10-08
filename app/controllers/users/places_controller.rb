@@ -9,7 +9,7 @@ class Users::PlacesController < UsersController
 # Chepachet
   def create
     @place = Place.create( permitted_params )
-    byebug
+    # byebug
     if @place.valid?
       assign_tags_to( @place )
       redirect_to users_place_path( @place )
