@@ -1,12 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature "AdminCreatesCategoryWithParents", type: :feature do
-
-  let(:category){ create(:category) }
-
-  it 'valid example, valid creation' do
-    category
-    login_as(create(:admin), scope: :admin )
+RSpec.feature "UserAddsTagToValidPersonprofileOnCreates", type: :feature do
+  
+  it '"new" view allows user to manually add tags to person' do
+    login_as(create(:user), scope: :user )
     visit admins_categories_path
     expect(page).to have_content category.name
     click_link 'New'

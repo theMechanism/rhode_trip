@@ -15,4 +15,8 @@ RSpec.describe Category, type: :model do
   describe 'associations' do
     it { expect( category ).to have_and_belong_to_many( :places ) }
   end
+
+  describe 'to String returns category name' do
+    it { expect( category.to_s ).to eq( category.name ) }
+  end
 end
