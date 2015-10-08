@@ -6,11 +6,6 @@ class Users::PeopleController < UsersController
 
   def create
     @person = Person.create(person_params)
-    # if tag_params
-    #   foo = tag_params.scan(/\w+/)
-    #   # .each{ |t| @person.tags.create(name: t) }
-    # end
-    byebug
     redirect_to users_person_path(@person)
   end
 
@@ -22,7 +17,9 @@ class Users::PeopleController < UsersController
   private
 
   def person_params
-    params.require(:person).permit(:name, :abstract, :description, :occupation, :tags_atttibutes, :place_ids => [] )
+    params.require(:person).permit(:name, :abstract, :description, :occupation, 
+      :acts_as_taggable_on_tag => :name, 
+      :place_ids => [] )
   end
 
 end

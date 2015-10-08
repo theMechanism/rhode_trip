@@ -7,6 +7,7 @@ class Person < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :abstract, :description, presence: true
 
+  attr_accessor :acts_as_taggable_on_tag
   # before_validation :split_tag_names_string
 
   # protected
