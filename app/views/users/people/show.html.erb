@@ -13,8 +13,4 @@
 
 <h5><%= @person.name %>'s Tags</h5>
 
-<ul class="tags">
-  <% @person.tags.each do |tag| %>
-    <li><%= tag.name %></li>
-  <% end %>
-</ul>
+<%= render '/shared/tags_list', resource: @person %>

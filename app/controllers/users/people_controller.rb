@@ -7,7 +7,7 @@ class Users::PeopleController < UsersController
   end
 
   def create
-    @person = Person.create( permitted_params) #.merge( get_tags )
+    @person = Person.create( permitted_params)
     assign_tags_to( @person )
     redirect_to users_person_path(@person)
   end

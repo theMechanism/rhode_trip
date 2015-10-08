@@ -2,6 +2,7 @@ class Users::PlacesController < UsersController
 
   def new 
     @place = Place.new
+    @place.tags.build
   end
 
   def create
