@@ -14,4 +14,15 @@ RSpec.feature "UserAddsTagToValidPersonprofileOnCreates", type: :feature do
     expect(page).to have_content 'tag1'
   end
 
+  it '"new" view allows user to manually add multiple tags to person' do
+    login_as(create(:user), scope: :user )
+    visit new_users_person_path
+    fill_in('Name', :with => 'unusual name')
+    fill_in('Abstract', :with => 'unusual abst')
+    fill_in('Description', :with => 'description')
+    fill_in('Tags', :with => 'tag1, tag2 tag3')
+    find('input[value="Create Person"]').click
+    page.assert_selector('ul.tags li', :count => 3)
+  end
+
 end

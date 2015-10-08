@@ -14,7 +14,7 @@ RSpec.feature "AdminCreatesCategoryWithParents", type: :feature do
     expect(page).to have_content 'Select a parent category'
     select(category.name)
     fill_in('Name', :with => 'child category name')
-    find('Create').click
+    find('[value="Create Category"]').click
     expect(page).to have_content 'child category name'
     expect( page.find( 'tr.is-odd td[role="parent"]' ) ).to have_content( category.name )
   end

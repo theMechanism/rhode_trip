@@ -13,7 +13,7 @@
 
 <h5><%= @person.name %>'s Tags</h5>
 
-<ul>
+<ul class="tags">
   <% @person.tags.each do |tag| %>
     <li><%= tag.name %></li>
   <% end %>
