@@ -10,3 +10,11 @@
     </li>
   <% end %>
 </ul>
+
+<h5><%= @person.name %>'s Tags</h5>
+
+<ul>
+  <% @person.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</ul>
