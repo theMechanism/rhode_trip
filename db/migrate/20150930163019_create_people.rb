@@ -1,6 +1,7 @@
 class CreatePeople < ActiveRecord::Migration
   def change
     create_table :people do |t|
+      t.datetime :publish_date
       t.string :name
       t.text :abstract
       t.text :description

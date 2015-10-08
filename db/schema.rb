@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 20151001175650) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.boolean  "is_parent"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "categories", ["category_id"], name: "index_categories_on_category_id", using: :btree
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
 
   create_table "categories_places", id: false, force: :cascade do |t|
     t.integer "place_id",    null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151001175650) do
   add_index "categories_places", ["place_id", "category_id"], name: "index_categories_places_on_place_id_and_category_id", using: :btree
 
   create_table "people", force: :cascade do |t|
+    t.datetime "publish_date"
     t.string   "name"
     t.text     "abstract"
     t.text     "description"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20151001175650) do
   end
 
   create_table "places", force: :cascade do |t|
+    t.datetime "publish_date"
     t.string   "line_1"
     t.string   "line_2"
     t.string   "city"
@@ -82,8 +84,8 @@ ActiveRecord::Schema.define(version: 20151001175650) do
     t.string   "name"
     t.boolean  "approved"
     t.integer  "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "places", ["author_id"], name: "index_places_on_author_id", using: :btree
@@ -128,5 +130,4 @@ ActiveRecord::Schema.define(version: 20151001175650) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "categories", "categories"
 end
