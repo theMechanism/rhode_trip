@@ -4,6 +4,9 @@ class Admins::CategoriesController < Admins::BaseController
   def permitted_params
     params.
       require(:category).
-      permit(:name, :is_parent)
+      permit(:name, :is_parent, :parent_id)
   end
+
+  private
+
 end

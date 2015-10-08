@@ -6,10 +6,12 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
-
+require 'devise'
 
 require_relative './support/database_cleaner'
 require_relative './support/factory_girl'
+require_relative './support/controller_helpers'
+require_relative './support/devise'
 
 
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -32,6 +34,9 @@ require_relative './support/factory_girl'
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
+
+# overrides default, enables headless feature tests
+Capybara.javascript_driver = :webkit
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
