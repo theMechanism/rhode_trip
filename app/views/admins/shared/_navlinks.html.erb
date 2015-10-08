@@ -9,3 +9,9 @@
 
 <li class="divider"></li>
 <li><a href="<%= admins_categories_path %>">Categories</a></li>
+
+<% if current_admin %>
+  <%= button_to "Log Out", destroy_admin_session_path, :method => :delete, class: 'button' %>
+<% else %>
+  <a href="<%= new_admin_session_path %>" class="button">Log In</a>
+<% end %>

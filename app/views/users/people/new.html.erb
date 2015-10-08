@@ -10,5 +10,7 @@
   <%= f.input :description %>
   <%= f.input :occupation %>
   <%= f.association :places, as: :check_boxes, label: 'Which places is this person connected to?' %>
+  <%= f.input :tags, :input_html => { :value => @person.tags.join(', ') }, as: :string %>
+  
   <%= f.button :submit %>
 <% end %>
