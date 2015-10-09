@@ -7,4 +7,8 @@ class Category < ActiveRecord::Base
   def to_s
     self.name
   end
+
+  def children
+    Category.where( parent: self )
+  end
 end

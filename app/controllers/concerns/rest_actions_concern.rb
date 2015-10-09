@@ -17,7 +17,6 @@ module RestActionsConcern
 
   def index
     @collection = resource_class.all
-    
     respond_with @collection
   end
   def new
