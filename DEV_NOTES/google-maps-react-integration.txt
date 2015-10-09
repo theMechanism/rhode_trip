@@ -16,3 +16,5 @@ and customizing is legit from there.
 meh. 
 unsure
 https://github.com/akiran/react-foundation-apps
+
+http://khan.github.io/react-components/#dollar-underscore
