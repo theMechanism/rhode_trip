@@ -18,3 +18,6 @@ updated_at
 <%= table.column :occupation %>
 <%= table.column :allow_comments %>
 <%= table.column :approved %>
+<%= table.column :tags do |t| %>
+  <%= t.tags.join(', ') %>
+<% end %>

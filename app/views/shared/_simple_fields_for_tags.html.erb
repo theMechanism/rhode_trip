@@ -1,5 +1,7 @@
-<!-- < % byebug %> -->
-<%= f.simple_fields_for resource.tags.build do |t| %>
-  <%= t.input :name, label: 'Tags' %>
-  <!-- < % byebug %> -->
+<% tag = resource.tags.empty? ? resource.tags.build : resource.tags.first %>
+<% joined = tag.id ? resource.tags.join(', ') : nil %>
+
+<%= f.simple_fields_for tag do |t| %>
+  <%= t.input :name, label: 'Tags', input_html: {
+    value: joined } %>
 <% end %>

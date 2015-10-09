@@ -1,16 +1,3 @@
-<!-- 
-name
-abstract
-description
-occupation
-allow_comments
-approved
-author_id
-author_type
-created_at
-updated_at
-
- -->
 <%= f.association :author, :label_method => :display_name, :value_method => :id, include_blank: false %> 
 <%= f.input :name %>
 <%= f.input :abstract %>
@@ -19,3 +6,4 @@ updated_at
 <%= f.input :occupation %>
 <%= f.input :allow_comments %>
 <%= f.input :approved %>
+<%= render 'shared/simple_fields_for_tags', resource: @resource, f: f %>

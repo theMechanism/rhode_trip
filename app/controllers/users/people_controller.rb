@@ -9,11 +9,11 @@ class Users::PeopleController < UsersController
   def create
     @person = Person.create( permitted_params)
     assign_tags_to( @person )
-    redirect_to users_person_path(@person)
+    redirect_to users_person_path( @person )
   end
 
   def show
-    @person = Person.find(params[:id])
+    @person = Person.find( params[:id] )
     @places = @person.places
   end
 

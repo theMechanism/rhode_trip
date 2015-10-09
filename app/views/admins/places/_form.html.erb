@@ -12,5 +12,7 @@
 <%= f.input :name %>
 <%= f.input :approved %>
 <%= f.association :people, as: :check_boxes, label: 'Associated People' %>
+<%= f.association :categories, as: :check_boxes %>
+<%= render 'shared/simple_fields_for_tags', resource: @resource, f: f %>
 
 
