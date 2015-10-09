@@ -8,7 +8,6 @@ class PeopleController < ActionController::Base
 end
 
 
-
 RSpec.describe PeopleController, type: :controller do
 
   let(:mock_ctrl){ PeopleController.new }
