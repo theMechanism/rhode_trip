@@ -3,3 +3,16 @@ http://revelry.co/development/2015/02/19/react-google-maps/
 http://react.rocks/tag/Animation
 
 https://github.com/chenglou/react-motion
+
+https://medium.com/technically-speaking/rails-react-browserify-e315001d5974
+
+https://github.com/rmosolgo/react-rails-hot-loader
+
+https://github.com/rails/jbuilder
+
+--- is foundation the way to go for client side ? 
+b/c bootstrap react integration is sooo friggin simple
+and customizing is legit from there.
+meh. 
+unsure
+https://github.com/akiran/react-foundation-apps

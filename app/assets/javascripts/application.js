@@ -6,14 +6,21 @@
 //
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file.
-//
+// ////////\\\\\\\\\require foundation
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+// for debugging, keep jq global
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require turbolinks
-//= require_tree .
 
-$(function(){ $(document).foundation(); });
+//= require turbolinks
+//= require react
+//= require react_ujs
+//= require components
+// = re quire _tree .
+
+// $(function(){ $(document).foundation(); });
+
+const FOO = 'foo';
+
+window.testing = require('./admins/base.js');
