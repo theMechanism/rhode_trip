@@ -16,10 +16,6 @@ Rails.application.routes.draw do
     resources :categories
   end
 
-  if Rails.env === 'test'
-    # see spec/controllers/module/
-    resources :people
-  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
