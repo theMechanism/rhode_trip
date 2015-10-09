@@ -17,7 +17,10 @@ RSpec.describe Admins::CategoriesController, type: :controller do
       parent = create( :category )
       child = create( :category, :child )
       sign_in FactoryGirl.create(:admin)
-      put :update, category: attributes_for( :category, :child ).merge({ parent_id: parent.id })
+      put :update, {
+        id: child.id,
+        category: attributes_for( :category, :child ).merge({ parent_id: parent.id })
+      }
       expect( response ).to have_http_status( 302 )
       expect( parent.children ).to eq( [ Category.last ] )
     end
