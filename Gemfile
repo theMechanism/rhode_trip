@@ -58,7 +58,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
-
+gem 'browserify-rails'
+gem 'react-rails', '~> 1.3.0'
 # prefer no coffeescript
 # Use CoffeeScript for .coffee assets and views
 # gem 'coffee-rails', '~> 4.1.0'
