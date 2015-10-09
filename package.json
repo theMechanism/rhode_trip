@@ -1,0 +1,23 @@
+{
+  "name": "rhode_trip",
+  "version": "1.0.0",
+  "description": " front end dependencies for rhode trip UI, users + public paths",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theMechanism/rhode_trip.git"
+  },
+  "keywords": [
+    "react",
+    "googlemaps-api"
+  ],
+  "author": "Avi Fox-Rosen",
+  "license": "private",
+  "bugs": {
+    "url": "https://github.com/theMechanism/rhode_trip/issues"
+  },
+  "homepage": "https://github.com/theMechanism/rhode_trip"
+}
