@@ -8,7 +8,7 @@ class Place < ActiveRecord::Base
   has_many :embeds, as: :uploadable
   has_many :uploads, through: :embeds
 
-  accepts_nested_attributes_for :tags
+  accepts_nested_attributes_for :tags, :uploads
 
   attr_accessor :acts_as_taggable_on_tag
   

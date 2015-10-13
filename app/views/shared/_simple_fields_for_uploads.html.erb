@@ -4,10 +4,10 @@
   <% uploads = resource.uploads << resource.uploads.build %>
 <% end %>
 
-<% uploads.each do |up| %>
-  <% label = up.id ? 'Changed attachment' : 'Add attachment' %>
+<%= f.fields_for :uploads do |u| %>
+  <!-- < % uploads.each do |up| %> -->
 
-  <%= f.simple_fields_for up do |u| %>
-    <%= u.input :attached, label: label %>
-  <% end %>
+    <% label = u.object.id ? 'Change attachment' : 'Add attachment' %>
+    <%= u.file_field :attachment %>
+  <!-- < % end %> -->
 <% end %>

@@ -4,6 +4,7 @@
 
 <%= f.association :author, :label_method => :display_name, :value_method => :id, include_blank: false %> 
 <%= render 'shared/simple_fields_for_uploads', resource: @resource, f: f %>
+<!-- < %= f.association :uploads, as: :file %> -->
 <%= f.input :line_1 %>
 <%= f.input :line_2 %>
 <%= f.input :city %>
@@ -15,5 +16,3 @@
 <%= f.association :people, as: :check_boxes, label: 'Associated People' %>
 <%= f.association :categories, as: :check_boxes %>
 <%= render 'shared/simple_fields_for_tags', resource: @resource, f: f %>
-
-
