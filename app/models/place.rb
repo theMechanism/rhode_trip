@@ -6,7 +6,7 @@ class Place < ActiveRecord::Base
   has_and_belongs_to_many :categories, :uniq => true
   acts_as_taggable
   has_many :embeds, as: :uploadable
-  has_many :uploads, through: :embeds
+  has_many :uploads, through: :embeds#, source_type: "Uploadable"
 
   accepts_nested_attributes_for :tags
 
