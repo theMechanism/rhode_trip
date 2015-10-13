@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001175650) do
+ActiveRecord::Schema.define(version: 20151013174958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 20151001175650) do
 
   add_index "categories_places", ["category_id", "place_id"], name: "index_categories_places_on_category_id_and_place_id", using: :btree
   add_index "categories_places", ["place_id", "category_id"], name: "index_categories_places_on_place_id_and_category_id", using: :btree
+
+  create_table "embeds", force: :cascade do |t|
+    t.integer  "uploadable_id"
+    t.string   "uploadable_type"
+    t.integer  "upload_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "embeds", ["upload_id"], name: "index_embeds_on_upload_id", using: :btree
+  add_index "embeds", ["uploadable_type", "uploadable_id"], name: "index_embeds_on_uploadable_type_and_uploadable_id", using: :btree
 
   create_table "people", force: :cascade do |t|
     t.datetime "publish_date"
@@ -109,6 +120,11 @@ ActiveRecord::Schema.define(version: 20151001175650) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "uploads", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "display_name"

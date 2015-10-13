@@ -1,3 +1,4 @@
 class Upload < ActiveRecord::Base
-  belongs_to :embed
+  has_many :embeds
+  has_many :uploadables, through: :embeds
 end

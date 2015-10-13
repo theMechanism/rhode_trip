@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :embed do
     uploadable nil
-references ""
+    upload nil
   end
 
 end
