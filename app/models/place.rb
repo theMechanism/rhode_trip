@@ -5,6 +5,9 @@ class Place < ActiveRecord::Base
   has_and_belongs_to_many :people, :uniq => true
   has_and_belongs_to_many :categories, :uniq => true
   acts_as_taggable
+  has_many :embeds, as: :uploadable
+  has_many :uploads, through: :embeds
+
   accepts_nested_attributes_for :tags
 
   attr_accessor :acts_as_taggable_on_tag
