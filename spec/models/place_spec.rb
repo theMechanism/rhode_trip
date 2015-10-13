@@ -24,5 +24,6 @@ RSpec.describe Place, type: :model do
     it { expect( place ).to have_and_belong_to_many( :categories ) }
     it { expect( place ).to have_and_belong_to_many( :people ) }
     it { expect( place ).to have_many( :tags ) } # may need add'l tests to ensure that no db bloat - multiple tag assignments of same value
+    it { expect( place ).to have_many( :uploads ).through( :embeds ) }
   end
 end

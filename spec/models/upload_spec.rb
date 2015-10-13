@@ -10,6 +10,5 @@ RSpec.describe Upload, type: :model do
     it { expect( upload ).to have_many( :embeds ) }
     it { expect( upload ).to have_many( :places ).through( :embeds ) }
     it { expect( upload ).to have_many( :people ).through( :embeds ) }
-
   end
 end
