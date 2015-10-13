@@ -26,7 +26,7 @@ require 'csv'
 
   user = User.create(display_name: "Mech UserTester", email: "foo@bar.com", password: "password")
   self_publisher = User.create(display_name: "Mech SelfPub", email: "self@pub.com", password: "password", can_self_publish: true)
-  Admin.create(display_name:"Test Admin", email: "author@test.com", password: "password")
+  Admin.create(display_name:"Test Admin", email: "admin@test.com", password: "password")
 
   categories = []
   %w(Culture Shopping Outdoor Indoor Amusement).each do |cat| 

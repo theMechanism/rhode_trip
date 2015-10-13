@@ -3,6 +3,7 @@
 < % end %> --> 
 
 <%= f.association :author, :label_method => :display_name, :value_method => :id, include_blank: false %> 
+<%= render 'shared/simple_fields_for_uploads', resource: @resource, f: f %>
 <%= f.input :line_1 %>
 <%= f.input :line_2 %>
 <%= f.input :city %>

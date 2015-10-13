@@ -1,0 +1,13 @@
+<% if resource.uploads.empty? %>
+  <% uploads = [ resource.uploads.build ] %>
+<% else %>
+  <% uploads = resource.uploads << resource.uploads.build %>
+<% end %>
+
+<% uploads.each do |up| %>
+  <% label = up.id ? 'Changed attachment' : 'Add attachment' %>
+
+  <%= f.simple_fields_for up do |u| %>
+    <%= u.input :attached, label: label %>
+  <% end %>
+<% end %>
