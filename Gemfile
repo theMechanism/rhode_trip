@@ -41,7 +41,11 @@ gem 'responders'
 gem 'admino'
 
 # managing secrets + env var changes
-gem "figaro"
+gem 'figaro'
+
+gem 'paperclip', '~> 4.3.1'
+
+gem 'aws-sdk'
 ####################
 
 # STYLES
