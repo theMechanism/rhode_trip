@@ -1,2 +1,9 @@
-class Admins::UploadsController < ApplicationController
+class Admins::UploadsController < Admins::BaseController
+  include RestActionsConcern
+
+  def permitted_params
+    params.
+      require(:user).
+      permit(:display_name, :email, :password, :can_self_publish)
+  end
 end
