@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  ROLES = [ nil, 'Author', 'Publisher', 'Admin' ]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,4 +10,5 @@ class User < ActiveRecord::Base
   has_many :places, foreign_key: :author_id
 
   validates_presence_of :display_name
+
 end
