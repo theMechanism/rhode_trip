@@ -1,0 +1,6 @@
+<%= table.column :preview do  |a| %>
+  <%= image_tag a.attached.url(:thumb) %>
+<% end %>
+<%= table.column :file_name do |a| %>
+  <%= a.attached_file_name %>
+<% end %>
