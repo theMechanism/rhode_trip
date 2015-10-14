@@ -2,6 +2,7 @@
 <%= f.input :name %>
 <%= f.input :abstract %>
 <%= f.input :description %>
+<%= render 'shared/associated_upload_field', f: f %>
 
 <%= f.input :occupation %>
 <%= f.input :allow_comments %>

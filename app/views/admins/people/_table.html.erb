@@ -21,3 +21,6 @@ updated_at
 <%= table.column :tags do |t| %>
   <%= t.tags.join(', ') %>
 <% end %>
+<%= table.column :uploads do |t| %>
+  <%= t.uploads.map{|u| u.attached_file_name}.join(', ') %>
+<% end %>

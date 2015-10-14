@@ -1,0 +1,10 @@
+<%= f.association :uploads,
+  label_method: 
+    ->(u) {
+      content_tag(:div, class: 'img-wrapper') do
+        image_tag u.attached.url(:thumb)
+      end
+  }, 
+  as: :check_boxes, 
+  label: 'Add images?' 
+%>
