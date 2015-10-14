@@ -6,7 +6,7 @@ RSpec.describe Admins::CategoriesController, type: :controller do
     
     it 'on create' do
       parent = create( :category )
-      sign_in FactoryGirl.create(:admin)
+      sign_in FactoryGirl.create( :user, :admin )
       post :create, category: attributes_for( :category, :child ).merge({ parent_id: parent.id })
       expect( response ).to have_http_status( 302 )
       expect( Category.count ).to eq( 2 )
@@ -16,7 +16,7 @@ RSpec.describe Admins::CategoriesController, type: :controller do
     it 'on update' do
       parent = create( :category )
       child = create( :category, :child )
-      sign_in FactoryGirl.create(:admin)
+      sign_in FactoryGirl.create( :user, :admin )
       put :update, {
         id: child.id,
         category: attributes_for( :category, :child ).merge({ parent_id: parent.id })

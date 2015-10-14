@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :display_name
   end
+
+  def authenticate_admin!
+    unless current_user.is_admin?
+      flash[ :alert ] = 'You must be an admin to access that route.' 
+      redirect_to root_path
+    end
+  end
 end

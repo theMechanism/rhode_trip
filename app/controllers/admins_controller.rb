@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  skip_before_action :authenticate_user!
+  before_action :authenticate_admin!
 
   # Redirects resources to the collection path (index action) instead
   # of the resource path (show action) for POST/PUT/DELETE requests.

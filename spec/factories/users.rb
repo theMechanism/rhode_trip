@@ -3,5 +3,26 @@ FactoryGirl.define do
     display_name Faker::Name.name
     email Faker::Internet.email
     password Faker::Internet.password(10)
+
+    trait :author do
+      role 'Author'
+      email Faker::Internet.email
+      display_name Faker::Name.name
+    end
+
+    trait :publisher do
+      role 'Publisher'
+      can_self_publish true
+      email Faker::Internet.email
+      display_name Faker::Name.name
+    end
+
+    trait :admin do
+      role 'Admin'
+      can_self_publish true
+      is_admin true
+      email Faker::Internet.email
+      display_name Faker::Name.name
+    end
   end
 end

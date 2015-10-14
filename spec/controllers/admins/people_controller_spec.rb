@@ -5,7 +5,7 @@ RSpec.describe Admins::PeopleController, type: :controller do
   let( :author ){ create( :user ) }
 
   before :each do
-    sign_in FactoryGirl.create(:admin)
+    sign_in FactoryGirl.create( :user, :admin )
     @to_merge = { acts_as_taggable_on_tag: { name: 'tag1, tag2, tag3' }, author_id: author.id }
   end
 

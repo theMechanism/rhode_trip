@@ -6,7 +6,7 @@ RSpec.feature "AdminCreatesCategoryWithParents", type: :feature do
 
   it 'valid example, valid creation' do
     category
-    login_as(create(:admin), scope: :admin )
+    login_as( create( :user, :admin ) )
     visit admins_categories_path
     expect(page).to have_content category.name
     click_link 'New'

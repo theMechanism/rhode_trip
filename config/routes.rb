@@ -2,8 +2,16 @@ Rails.application.routes.draw do
   # devise_for :admins
   devise_for :users
 
-  root 'users/authors#index'
+  root 'public/explore#index'
 
+  scope module: :public do
+    resources :static, only: :index
+    resources :explore, only: :index
+    resources :people, only: [ :index, :show ]
+    resources :places, only: [ :index, :show ]
+  end
+
+  # i think rename authors -- it's nicer
   namespace :users do
     resources :people
     resources :places

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 module Mock
   class PeopleController < Admins::BaseController
-    skip_before_action :authenticate_admin! #avoid reroutes
+    skip_before_action :authenticate_admin!, :authenticate_user! #avoid reroutes
     include RestActionsConcern
 
     private
