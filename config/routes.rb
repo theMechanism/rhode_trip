@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :places
     resources :users
     resources :categories
+    resources :uploads
   end
 
   # Example of regular route:
