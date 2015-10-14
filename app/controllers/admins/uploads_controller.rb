@@ -3,6 +3,7 @@ class Admins::UploadsController < Admins::BaseController
 
   def create
     @resource = resource_class.new(permitted_params)
+    byebug
     if @resource.save
       respond_with @resource, location: collection_path
     else

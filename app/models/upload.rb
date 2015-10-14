@@ -6,17 +6,11 @@ class Upload < ActiveRecord::Base
   # start by just attaching image, and expand to other content types later
   # has_attached_file :attached, styles: { medium: "300x300>", thumb: "100x100>" }#, default_url: "/images/:style/missing.png"
 
-  
-
   has_attached_file :attached,
                     styles: { medium: "300x300>", thumb: "100x100>" },
-                    :storage => :s3,
-                    :s3_credentials => Proc.new{|a| a.instance.s3_credentials } 
-                    #Aws.config
+                    :storage => :fog,
+                    :s3_credentials => Paperclip::Attachment.default_options[:fog_credentials] 
 
   validates_attachment_content_type :attached, content_type: /\Aimage\/.*\Z/
 
-  def s3_credentials
-    {:bucket => ENV['AWS_S3_BUCKET'], :access_key_id => ENV['AWS_ACCESS_KEY_ID'], :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'], :region => ENV['AWS_REGION'] }
-  end
 end
