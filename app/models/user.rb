@@ -13,15 +13,15 @@ class User < ActiveRecord::Base
   validates :role, inclusion: { in: ROLES }
 
   def is_admin?
-    self.role == 'Admin'
+    ROLES.drop(3).include?( self.role )
   end
 
   def can_self_publish?
-    %w(Publisher Admin).include?( self.role )
+    ROLES.drop(2).include?( self.role )
   end
 
   def is_author?
-    %w(Author Publisher Admin).include?( self.role )
+    ROLES.drop(1).include?( self.role )
   end
 
 end
