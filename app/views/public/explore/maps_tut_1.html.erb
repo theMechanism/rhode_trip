@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 80%; width: 80%;}
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    
+
+<script>
+function mapOptions() {
+  return {
+    zoom: 4,
+    center: {lat: -33, lng: 151},
+    disableDefaultUI: true,
+    zoomControl: true,
+    mapTypeControl: true,
+    scaleControl: true,
+    streetViewControl: false,
+    rotateControl: false,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      mapTypeIds: [
+        google.maps.MapTypeId.ROADMAP,
+        google.maps.MapTypeId.TERRAIN,
+        google.maps.MapTypeId.SATELLITE
+      ],
+      position: google.maps.ControlPosition.RIGHT_TOP
+    }
+  }
+}
+
+function initMap(){
+  map = new google.maps.Map(document.getElementById('map'), mapOptions());
+}
+</script>
+
+<%= render 'shared/googlemaps_script', callback: 'initMap' %>
