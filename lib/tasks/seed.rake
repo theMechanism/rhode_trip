@@ -4,7 +4,7 @@ namespace :seed do
   
   desc "read in seed categories that Michael compiled"
   task categories: :environment do
-    path = Rails.root.to_s + '/csv/category_seeds.csv'
+    path = Rails.root.to_s + '/csv/categories_seeds.csv'
     children_names = CSV.read( path )
     parent_names = children_names.shift.drop(1)
     top_level = []

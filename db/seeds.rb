@@ -6,56 +6,37 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'csv'
 
 # case Rails.env
 # when "development"
   
-  csv_path = AddressValidator::PATH
-  zips_n_names = {}
 
-  CSV.foreach( csv_path ) do |row|
-    zips_n_names[ row[0] ] = [ row[1], row[4] ]
-  end
-
-  zips = zips_n_names.keys
+  ############################
+  # on fresh DB instance - run rake seed:categories + rake seed:places
+  # to load in real categories and places
+  ############################
 
   def tf_rand
     [true, false].sample
   end
 
   user = User.create(display_name: "Mech UserTester", email: "foo@bar.com", password: "password")
-  self_publisher = User.create(display_name: "Mech SelfPub", email: "self@pub.com", password: "password", can_self_publish: true)
-  Admin.create(display_name:"Test Admin", email: "admin@test.com", password: "password")
+  self_publisher = User.create(display_name: "Mech SelfPub", email: "self@pub.com", password: "password", role: 'Publisher')
+  admin = User.create(display_name: "MechAdmin", email: "admin@admin.com", password: "password", role: 'Admin')
 
-  categories = []
-  %w(Culture Shopping Outdoor Indoor Amusement).each do |cat| 
-    categories << Category.create(name: cat)
-  end
-
-  places = []
+  categories = Category.all
+  places = Place.all
   people = []
 
 
   [ user, self_publisher ].each do |author|
     5.times do
-      sampled = zips.sample
-      cat_count = 1 + rand(3)
-      cats = categories.sample( cat_count )
-      places << Place.create(
-        line_1: Faker::Address.street_address,
-        line_2: Faker::Address.secondary_address,
-        city: zips_n_names[ sampled ][ 0 ],
-        zip: sampled,
-        name: Faker::Company.name,
-        categories: cats,
-        author: author,
-        approved: tf_rand
-      )
+      rand_count = 1 + rand(3)
+
       people << Person.create(
         name: Faker::Name.name, 
         abstract: Faker::Lorem.sentence,
-        description: Faker::Lorem.paragraphs( cat_count ),
+        description: Faker::Lorem.paragraphs( rand_count ).join,
         occupation: Faker::Name.title,
         approved: tf_rand,
         author: author
@@ -69,12 +50,6 @@ require 'csv'
       place.people.push( people.sample( my_rand ) )
     end
   end
-
-
-
-
-
-
 
 
 # end
