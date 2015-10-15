@@ -1,0 +1,26 @@
+<h4>profile contents</h4>
+  <div class="row">
+    <% @people.each do |person| %>
+      <div class="small-4 columns">
+        <div class="item-wrapper">
+          <div class="img-wrapper">
+            <img src="http://i.imgur.com/Mcw06Yt.png">
+            <a class="button" href="<%= users_person_path(person) %>">Read more</a>
+          </div>  
+          <a href="#"><h3><%= person.name %></h3></a>
+          <p><%= person.abstract %></p>
+        </div>  
+      </div>
+    <% end %>
+  </div>
+
+
+<h4>placeholder for map</h4>
+<h5>place list to be pins on map:</h5>
+<ul>
+  <% @places.each do |place| %>
+   <li><%= place.name %></li>
+  <% end %>  
+</ul>
+
+<img src="http://wwp.greenwichmeantime.com/images/usa/rhode-island.jpg" alt="">

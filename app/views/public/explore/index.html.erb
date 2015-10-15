@@ -1,26 +1,22 @@
-<h4>profile contents</h4>
-  <div class="row">
-    <% @people.each do |person| %>
-      <div class="small-4 columns">
-        <div class="item-wrapper">
-          <div class="img-wrapper">
-            <img src="http://i.imgur.com/Mcw06Yt.png">
-            <a class="button" href="<%= users_person_path(person) %>">Read more</a>
-          </div>  
-          <a href="#"><h3><%= person.name %></h3></a>
-          <p><%= person.abstract %></p>
-        </div>  
-      </div>
-    <% end %>
-  </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 50%; width: 50%;}
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    
 
+<script>
+function initMap(){
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
+</script>
 
-<h4>placeholder for map</h4>
-<h5>place list to be pins on map:</h5>
-<ul>
-  <% @places.each do |place| %>
-   <li><%= place.name %></li>
-  <% end %>  
-</ul>
-
-<img src="http://wwp.greenwichmeantime.com/images/usa/rhode-island.jpg" alt="">
+<%= render 'shared/googlemaps_script', callback: 'initMap' %>
